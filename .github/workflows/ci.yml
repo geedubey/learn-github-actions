@@ -1,0 +1,28 @@
+name: Test CI Pipeline
+
+# 1. The Trigger: Run this whenever someone pushes code to the main branch
+on:
+  push:
+    branches: [ main ]
+
+# 2. The Structural Group
+jobs:
+  run-tests:
+    # 3. The Sandbox Machine: Using the standard free Linux box
+    runs-on: ubuntu-latest
+
+    # 4. The Work Units (Steps)
+    steps:
+      # Step A: Download your repository code into the runner machine
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      # Step B: Set up Node.js on the runner environment
+      - name: Set up Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Step C: Execute our local script file
+      - name: Execute Test Script
+        run: node app.js
