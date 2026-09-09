@@ -5,7 +5,7 @@ function greet(name) {
 }
 
 // Simple assertion check
-if (greet("GitHub") !== "Hello, GitHub!") {
+if (greet("GitHub") !== "Hello, Broken!") {
     console.error("Test Failed!");
     process.exit(1); // Crucial: A non-zero exit code tells GitHub the test failed
 } else {
